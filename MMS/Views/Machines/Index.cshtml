@@ -1,0 +1,29 @@
+﻿@model IEnumerable<MMS.Models.Machines>
+@*@model IEnumerable<Device>*@
+
+@{
+    ViewData["Title"] = "Machines";
+}
+
+<h1>Machine Management System</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New Machine</a>
+</p>
+
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 mb-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Name)  <span style="position:absolute; right:25px"><status has-status="@item.Status"></status></span></h5>
+                    <p class="card-text">Id: <i>@Html.DisplayFor(modelItem => item.Id)</i></p>
+                    <p class="card-text">Data: <i>@Html.DisplayFor(modelItem => item.Data)</i></p>
+                    <p class="card-text">Status: <i>@Html.DisplayFor(modelItem => item.Status)</i></p>
+                    <a href="#" class="btn btn-primary">Send command</a>
+                </div>
+            </div>
+        </div>
+    }
+</div>
